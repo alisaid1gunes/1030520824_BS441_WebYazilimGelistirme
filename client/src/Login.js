@@ -240,6 +240,7 @@ const Login = () => {
                     }}
                 >
                     <img
+
                         src={sitting}
                         style={{
                             width: "100%",
