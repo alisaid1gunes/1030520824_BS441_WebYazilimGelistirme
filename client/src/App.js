@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import { Container, CssBaseline } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
+import Game from "./Game";
+import Main from "./Main";
 
+const theme = createTheme({
+    typography: {
+        fontFamily: "Montserrat",
+    },
+    // buttons, links and other components with text would automatically use the global font family
+});
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <CssBaseline />
+            <ThemeProvider theme={theme}>
+                <Container
+                    maxWidth={false}
+                    style={{
+                        padding: "0px",
+                        backgroundColor: "#1192f3",
+                       minWidth: "100vw", minHeight: "100vh",
+                        color: "white",
+                    }}
+                >
+                    <Routes>
+                        <Route path="/" element={<Main />} />
+                        <Route path="/game" element={<Game />} />
+                    </Routes>
+                </Container>
+            </ThemeProvider>
+        </div>
+    );
 }
 
 export default App;
